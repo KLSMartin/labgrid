@@ -39,7 +39,7 @@ from .common import (
     queue_as_aiter,
 )
 from .. import Environment, Target, target_factory
-from ..exceptions import NoDriverFoundError, NoResourceFoundError, InvalidConfigError
+from ..exceptions import NoDriverFoundError, NoResourceFoundError, InvalidConfigError, Error, UserError
 from .generated import labgrid_coordinator_pb2, labgrid_coordinator_pb2_grpc
 from ..resource.remote import RemotePlaceManager, RemotePlace
 from ..util import diff_dict, flat_dict, dump, atomic_replace, labgrid_version, Timeout
@@ -54,14 +54,6 @@ from ..logging import basicConfig, StepLogger
 # during shutdown, although nothing seems to go wrong. As this is
 # confusing for users, suppress the message by adding an indirection.
 sys.excepthook = lambda type, value, traceback: sys.__excepthook__(type, value, traceback)
-
-
-class Error(Exception):
-    pass
-
-
-class UserError(Error):
-    pass
 
 
 class ServerError(Error):

@@ -41,3 +41,13 @@ class NoStrategyFoundError(NoSupplierFoundError):
 @attr.s(eq=False)
 class RegistrationError(Exception):
     msg = attr.ib(validator=attr.validators.instance_of(str))
+
+
+@attr.s(eq=False)
+class Error(Exception):
+    pass
+
+
+@attr.s(eq=False)
+class UserError(Error):
+    pass

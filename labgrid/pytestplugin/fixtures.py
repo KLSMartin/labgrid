@@ -2,8 +2,7 @@ import os
 import subprocess
 import pytest
 
-from ..exceptions import NoResourceFoundError, NoDriverFoundError
-from ..remote.client import UserError
+from ..exceptions import NoResourceFoundError, NoDriverFoundError, UserError
 from ..resource.remote import RemotePlace
 from ..util.ssh import sshmanager
 from ..logging import DEFAULT_FORMAT
